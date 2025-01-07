@@ -1,3 +1,4 @@
-name = "your-worker-name"
+name = "care"
 type = "javascript"
+
 compatibility_flags = ["nodejs_compat"]
