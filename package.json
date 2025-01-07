@@ -1,7 +1,6 @@
 {
   "name": "nextjs-cleaners-app-new",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "start": "next start",
     "build": "next build",
@@ -11,8 +10,11 @@
     "node": ">=18.18.0"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.20",
     "next": "latest",
+    "postcss": "^8.4.49",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "tailwindcss": "^3.4.17"
   }
 }

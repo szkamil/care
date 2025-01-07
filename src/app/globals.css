@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Custom styles */
+.bg-pastel-blue {
+  background-color: #aec6cf; /* Pastel blue color */
+}
+
+.bg-pastel-red {
+  background-color: #ff6961; /* Pastel red color */
+}
