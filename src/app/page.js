@@ -1,115 +1,30 @@
 'use client'
 
-import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
-  const [file, setFile] = useState(null);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [bio, setBio] = useState('');
-
-  const [preview, setPreview] = useState(null);
-
-  const handleFileChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      setFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', { name, email, bio, file });
-  };
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8 bg-blue-50">
-      <header className="w-full bg-pastel-red text-white py-4 flex justify-between items-center px-4 rounded-t-lg">
+      <header className="w-full bg-dark-blue text-white py-4 flex justify-between items-center px-4 rounded-t-lg">
         <div className="text-2xl font-bold">eterna.care</div>
-        <div className="space-y-1">
-          <div className="w-6 h-0.5 bg-white"></div>
-          <div className="w-6 h-0.5 bg-white"></div>
-          <div className="w-6 h-0.5 bg-white"></div>
+        <div className="flex items-center space-x-4">
+          <Link href="/registration" legacyBehavior>
+            <a className="bg-white text-dark-red py-2 px-4 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white font-bold">
+              Register
+            </a>
+          </Link>
+          <div className="space-y-1">
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+          </div>
         </div>
       </header>
-      <div className="flex-grow flex items-center justify-center">
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-4">Upload Your Info</h2>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pastel-red focus:border-pastel-red"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pastel-red focus:border-pastel-red"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="bio" className="block text-gray-700">Bio</label>
-            <textarea
-              id="bio"
-              name="bio"
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pastel-red focus:border-pastel-red"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="file" className="block text-gray-700">Profile Photo</label>
-            <input type="file" id="file" onChange={handleFileChange} className="w-full" required />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-pastel-red text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pastel-red"
-          >
-            Submit
-          </button>
-        </form>
+      <div className="flex-grow flex flex-col items-center justify-center space-y-4">
+        <Image src="/logo.jpg" alt="Logo" width={600} height={600} />
       </div>
-      <div className="flex-grow flex items-center justify-center mt-8">
-        <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-4">Preview</h2>
-          <div className="mb-4">
-            <label className="block text-gray-700">Name</label>
-            <p className="mt-1">{name}</p>
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Email</label>
-            <p className="mt-1">{email}</p>
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Bio</label>
-            <p className="mt-1">{bio}</p>
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700">Profile Photo</label>
-            {preview && <img src={preview} alt="Profile Preview" className="mt-1 rounded-md" />}
-          </div>
-        </div>
-      </div>
-      <footer className="w-full bg-pastel-red text-white py-4 flex justify-center items-center px-4 rounded-b-lg">
+      <footer className="w-full bg-dark-blue text-white py-4 flex justify-center items-center px-4 rounded-b-lg">
         <div className="text-sm">© 2023 eterna.care, Inc.</div>
       </footer>
     </main>
