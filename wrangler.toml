@@ -1,2 +1,13 @@
 compatibility_flags = [ "nodejs_compat" ]
 compatibility_date = "2024-09-23"
+
+name = "my-worker"
+type = "javascript"
+
+account_id = "8e2119e13e2741c4b3cb306fa9f3a96f"
+workers_dev = true
+
+[env.production]
+kv_namespaces = [
+  { binding = "USER_PROFILES", id = "poc_eterna_care" }
+]

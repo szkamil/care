@@ -21,10 +21,21 @@ export default function Registration() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', { name, email, bio, file });
+    const data = { name, email, bio, file: preview };
+    const response = await fetch('https://6647fe58.care-1dq.pages.dev', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      console.log('Profile saved');
+    } else {
+      console.error('Failed to save profile');
+    }
   };
 
   return (
@@ -88,7 +99,7 @@ export default function Registration() {
         </form>
       </div>
       <footer className="w-full bg-pastel-red text-white py-4 flex justify-center items-center px-4 rounded-b-lg">
-        <div className="text-sm">© 2025 eterna.care, Inc.</div>
+        <div className="text-sm">© 2023 eterna.care, Inc.</div>
       </footer>
     </main>
   );
