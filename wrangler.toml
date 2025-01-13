@@ -11,3 +11,8 @@ workers_dev = true
 kv_namespaces = [
   { binding = "USER_PROFILES", id = "poc_eterna_care" }
 ]
+
+[env.dev]
+kv_namespaces = [
+  { binding = "USER_PROFILES", id = "poc_eterna_care" }
+]
