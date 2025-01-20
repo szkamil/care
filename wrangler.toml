@@ -3,6 +3,7 @@ compatibility_date = "2024-09-23"
 
 name = "my-worker"
 type = "javascript"
+main = "my-worker/index.js"  # Specify the correct entry-point script
 
 account_id = "8e2119e13e2741c4b3cb306fa9f3a96f"
 workers_dev = true
