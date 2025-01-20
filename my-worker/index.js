@@ -6,9 +6,9 @@ async function handleRequest(request) {
   if (request.method === 'OPTIONS') {
     // Handle CORS preflight request
     return new Response(null, {
-      status: 200, // Change status to 200 OK
+      status: 204, // Change status to 204 No Content for preflight requests
       headers: {
-        'Access-Control-Allow-Origin': 'https://6647fe58.care-1dq.pages.dev',
+        'Access-Control-Allow-Origin': 'https://eterna.care',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
       },
@@ -22,7 +22,7 @@ async function handleRequest(request) {
     return new Response('Profile saved', {
       status: 200,
       headers: {
-        'Access-Control-Allow-Origin': 'https://6647fe58.care-1dq.pages.dev',
+        'Access-Control-Allow-Origin': 'https://eterna.care',
       },
     })
   }
@@ -30,7 +30,7 @@ async function handleRequest(request) {
   return new Response('Method not allowed', {
     status: 405,
     headers: {
-      'Access-Control-Allow-Origin': 'https://6647fe58.care-1dq.pages.dev',
+      'Access-Control-Allow-Origin': 'https://eterna.care',
     },
   })
 }
