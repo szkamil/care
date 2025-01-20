@@ -23,6 +23,8 @@ async function handleRequest(request) {
       status: 200,
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': '*', // Allow all headers
       },
     })
   }
