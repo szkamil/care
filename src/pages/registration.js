@@ -101,6 +101,6 @@ export default function Registration() {
       <footer className="w-full bg-pastel-red text-white py-4 flex justify-center items-center px-4 rounded-b-lg">
         <div className="text-sm">© 2023 eterna.care, Inc.</div>
       </footer>
-    </main>
+    </main> 
   );
 }
