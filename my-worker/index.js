@@ -6,7 +6,7 @@ async function handleRequest(request) {
   if (request.method === 'OPTIONS') {
     // Handle CORS preflight request
     return new Response(null, {
-      status: 200, // Change status to 200 OK
+      status: 204, // No Content
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
@@ -33,6 +33,8 @@ async function handleRequest(request) {
     status: 405,
     headers: {
       'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': '*', // Allow all headers
     },
   })
 }
